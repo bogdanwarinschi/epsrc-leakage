@@ -1,0 +1,103 @@
+% =============================================================================
+
+\section{Background}
+\label{sec:prop_bg}
+
+Cloud storage is currently experiencing explosive growth. Users regularly rely on the cloud to store businesscritical
+information, and the average organization uploads 13.9 TB of data to the cloud each month [3].
+With all of this data stored remotely, security of data is becoming a core requirement for any organization looking to leverage the public cloud.  
+
+In this setting, even if one is willing to trust the cloud, it is crucial to also guarantee security against intrusion attacks or dishonest employee actions. 
+Ensuring this level of security without compromising functionality and efficiency is one of the major barriers in the 
+face of wider cloud storage adoption, especially when compliance with legal requirements such as (the US regulation comprised by) PCI DSS and HIPAA, as well as privacy requirements under laws such as the EU Data Protection Regulation. 
+
+It is not hard to observe that simply using off-the-shelf encryption schemes does not “work” for cloud
+storage application. This is because standard encryption is so strong as to hide \emph{all} poartial information about the plaintexts, so ciphertexts cannot be used even to search on the underlying plaintexts. 
+
+\paragraph{Computing on encrypted data}
+The theoretical appeal, but especially the potential for practical impact, has attracted a lot of research in the area of computing on encrypted data, where a cloud is empowered to operate on data that is encrypted without getting access to said data.
+There are a few theoretical solutions to this problem, e.g. Oblivious RAM (ORAM) [33, 23, 35] or fully homomorphic encryption
+(FHE) [22]. These solutions are decades away from being sufficiently efficient. 
+
+A more practical approach proposes to design encryption schemes which leak \emph{some} information, sufficient to enable running algorithms on top of encrypted data, while revealing as little as possible about what exactly is encrypted. 
+The practical implications for secure solutions for this problem are staggering and have attracted a significant amount of research.
+Consider for example  the rather restricted functionality offered by symmetric searchable encryption.
+There is by now a plethora of academic research on the topic \cite{}. 
+The solutions proposed differ in the level of functionality, security and efficiency they provide: 
+these properties are almost always at odds with each other. 
+Most of the schemes address the exact-match keyword search, but there are also solutions for enabling
+sorting the encrypted data, performing conjunctive, Boolean, range, similarity, substring queries, etc. Some
+protocols require a user or a proxy to create an encrypted index of the data and send it to the server along
+with encrypted data. Some are in the public- and some are in the symmetric-key settings. Some solutions
+are transparent in that the server can handle ciphertexts in the exact same way it searched unencrypted data,
+so no server-side modifications are required. The existing solutions also vary greatly security-wise. This
+is not surprising given that one often must compromise security in order to achieve better efficiency or
+functionality. 
+
+\paragraph{The problem}
+All of the above searchable encryption schemes and, more generally, schemes where information is leaked in exchange of improved functionality share a major shortcomming: the security implications of the information that is disclosed are only rarely clear. 
+Very roughly, security definitions for such schemes formalize the information leaked as  a function which maps the secret information that should be protected to a bitstring.  A scheme is deamed secure if any attack against the scheme can be simulated by an adversary who only has access to the leaked information.
+
+The leakage function is therefore a parameter of the definition but there are no restrictions imposed on it. 
+Specifying the leakage function associated to a scheme is left to the scheme designer, and determining what are acceptable functions is left to the users of the scheme.
+For some functions, e.g. a function that returns the first field of a database record, it may be clear and relatively simple to determine if the risc is acceptable.
+However, only informal arguments where attacks that exhibit obviously insecure behaviour have appeared in the literature. 
+What is missing is a principled approach to the problem of understanding and quantifying information leakage in this type of schemes. 
+
+% -----------------------------------------------------------------------------
+
+\section{Research project}
+\label{sec:prop_hyp}
+
+The research hypothesis 
+
+
+A possible solution to this problem is rooted in work by the PI in the context of electronic voting~\cite{bernhard2012measuring}. 
+There, it is observed that no matter how well individual votes are proected, the result of the voting process necessarily leaks information about the votes.
+The simplest way to see this is in the case where the winner is by unanimity: here it is clear how everyone voted.  The problem mirrors the one outline above for searchable encryption:  the information revealed by the result of the system is not accounted for by security definitions for privacy in voting systems. 
+For voting systems this problem has been addressed by the \PI~\cite{bernhard2012measuring}. 
+The main result shows that it is possible to use various notions of \emph{computational entropy} to measure the information that is revealed to the adversary.  
+Moreover, it is possible to exhibit a mapping between different notions of entropy (Hartley, min, average, conditional) and attacker models which clarify precisely what is the information that the attacker aims to obtain. 
+
+The idea behind this project is to 
+
+
+An important ingredient of this research project is a generalization of the traditional notion of entropy. 
+In a series of papers co-authored by Prof. Smith~\cite{DBLP:conf/csfw/AlvimCPS12,DBLP:conf/csfw/AlvimCMMPS14,DBLP:conf/csfw/AlvimCMMPS16,DBLP:conf/csfw/SmithS17} a generalization of the notion of entropy \emph{g-leakage}, 
+an approach to quantifying information leakage aking to entropy, but in a way that allow to identify a matching adversarial model.  
+The US National Security Agency awarded in 2015 the Best Cybersecurity Research Paper 
+
+From this perspective g-leakage generalizes the use of entropy in measuring vote privacy \cite{bernhard2012measuring}. 
+
+The suggestion of using the g-leakage approach to measure information leakage in encryption schemes was suggested by the PI to Prof. Boldyreva in 2014, who has later organized a preliminary 3-day meeting with the \PI and Prof. Smith in April 2015.  
+In the meeting several interesting research directions were identified; one of them was to use the setting of searchable encryption as a test case to 
+
+This line of research has recently been granted support by the US National Science Foundation who has recently awarded a grant for collaborative work (\textit{EAGER: Collaborative: Quantifying Information Leakage in Searchable Encryption} -- Award \#1749069) for developing a principled understanding of information leakage in searchable encryption. 
+
+The broad goal is to extend the approach in ~\cite{bernhard2012measuring} 
+
+
+This grant will run between January 2018 and June 2019. 
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\section{Past and ongoing collaborations}
+\label{sec:prop_method}
+The the Prof. Warinschi and Prof. Boldyreva have been collaborating for more than a decade, and their collaboration resulted in several research papers~\cite{boldyreva2007closer,boldyreva2009foundations,boldyreva2012secure,lipton2016provably}; some of these are  highly cited. 
+The PI and Prof. Boldyreva are currently undertaking joint work in the area of encryption for machine learning with one research paper under submission and another one in preparation. 
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+
+% =============================================================================
+
+
+

@@ -1,0 +1,45 @@
+
+@inproceedings{bernhard2012measuring,
+  title={Measuring vote privacy, revisited},
+  author={Bernhard, David and Cortier, V{\'e}ronique and Pereira, Olivier and Warinschi, Bogdan},
+  booktitle={Proceedings of the 2012 ACM conference on Computer and communications security},
+  pages={941--952},
+  year={2012},
+  organization={ACM}
+}
+@article{boldyreva2012secure,
+  title={Secure proxy signature schemes for delegation of signing rights},
+  author={Boldyreva, Alexandra and Palacio, Adriana and Warinschi, Bogdan},
+  journal={Journal of Cryptology},
+  volume={25},
+  number={1},
+  pages={57--115},
+  year={2012},
+  publisher={Springer}
+}
+@article{boldyreva2007closer,
+  title={A closer look at PKI: Security and efficiency},
+  author={Boldyreva, Alexandra and Fischlin, Marc and Palacio, Adriana and Warinschi, Bogdan},
+  journal={Public Key Cryptography--PKC 2007},
+  pages={458--475},
+  year={2007},
+  publisher={Springer}
+}
+
+@inproceedings{boldyreva2009foundations,
+  title={Foundations of Non-malleable Hash and One-Way Functions.},
+  author={Boldyreva, Alexandra and Cash, David and Fischlin, Marc and Warinschi, Bogdan},
+  booktitle={ASIACRYPT},
+  volume={5912},
+  pages={524--541},
+  organization={Springer}
+}
+
+@inproceedings{lipton2016provably,
+  title={Provably secure virus detection: Using the observer effect against malware},
+  author={Lipton, Richard J and Ostrovsky, Rafail and Zikas, Vassilis},
+  booktitle={LIPIcs-Leibniz International Proceedings in Informatics},
+  volume={55},
+  year={2016},
+  organization={Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik}
+}

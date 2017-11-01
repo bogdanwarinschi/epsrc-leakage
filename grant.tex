@@ -1,0 +1,147 @@
+\documentclass[a4paper,11pt]{article}
+
+% Format:  per
+%
+% http://www.epsrc.ac.uk/funding/howtoapply/preparing/writing/
+
+\usepackage{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=numeric,hyperref=true,defernumbers=true]{biblatex}
+\usepackage[flushleft]{paralist}
+\usepackage{titlesec}
+\usepackage{xargs}
+\usepackage{xspace}
+\usepackage{xstring}
+\usepackage{enumitem}
+\usepackage[flushmargin]{footmisc}
+%\usepackage[document]{ragged2e}
+\usepackage[a4paper,margin=1.7cm]{geometry}
+\usepackage[official]{eurosym}
+\usepackage{amsfonts}
+
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.shapes}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{fit}
+\usetikzlibrary{intersections}
+\usetikzlibrary{matrix}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{shapes.symbols}
+%\setlength{\RaggedRightParindent}{\parindent}
+
+\addbibresource{grant-case_prev.bib}
+\addbibresource{grant-case_prop.bib}
+
+\AtBeginBibliography{\scriptsize}
+\setlength{\bibhang}{0.00em}
+\setlength{\biblabelsep}{0.25em}
+\setlength{\bibitemsep}{0.25ex}
+
+\titleformat{\section}[block]{\normalfont\bfseries}{\thesection.}{1em}{\MakeUppercase}
+\titlespacing*{\section}{0.0ex}{1ex}{1ex}[{0.0ex}]
+
+\titleformat{\subsection}[block]{\normalfont\bfseries}{\thesubsection.}{1em}{}
+\titlespacing*{\subsection}{0.0ex}{1ex}{1ex}[{0.0ex}]
+
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\thesubsubsection.}{1em}{}
+\titlespacing*{\subsubsection}{0.0ex}{1ex}{1ex}[{0.0ex}]
+
+\pagestyle{empty}
+
+\newcommandx{\SEC}[1][1={}]{\IfEq{#1}{s}{Sections}{Section}\xspace}
+\newcommandx{\TAB}[1][1={}]{\IfEq{#1}{s}{Tables}{Table}\xspace}
+\newcommandx{\FIG}[1][1={}]{\IfEq{#1}{s}{Figures}{Figure}\xspace}
+\newcommandx{\ANNEX}[1][1={}]{\IfEq{#1}{s}{Annexes}{Annex}\xspace}
+
+\newcommandx{\REFSEC}[1]{\SEC~\ref{#1}\xspace}
+\newcommandx{\REFTAB}[1]{\TAB~\ref{#1}\xspace}
+\newcommandx{\REFFIG}[1]{\FIG~\ref{#1}\xspace}
+\newcommandx{\REFANNEX}[1]{\ANNEX~\ref{#1}\xspace}
+
+\newcommandx{\GCITE}[2][1={}]{{\bf \cite[#1]{#2}}\xspace}
+
+\newcommandx{\EURO}{\mbox{\euro}}
+\newcommandx{\GBP}{\pounds}
+\newcommandx{\YEN}{\yen}
+\newcommandx{\USD}{\$}
+
+\newcommandx{\WP}[2][2={}]{\IfEq{#2}{}{WP-#1}{WP-#1.#2}\xspace}
+\newcommandx{\PI}{PI\xspace}
+\newcommandx{\CI}[1][1={}]{\IfEq{#1}{}{CI}{CI-#1}\xspace}
+\newcommandx{\PHD}[1][1={}]{\IfEq{#1}{}{PhD}{PhD-#1}\xspace}
+\newcommandx{\PDRA}[1][1={}]{\IfEq{#1}{}{PDRA}{PDRA-#1}\xspace}
+
+\begin{document}
+
+% =============================================================================
+
+% Content: per 
+%
+% http://www.epsrc.ac.uk/funding/howtoapply/preparing/writing/caseforsupport/ 
+
+% 2-page max: case for support, track record
+
+\begin{refsegment}
+\defbibfilter{notA}{not segment=\therefsegment}
+\newpage
+
+\centerline{{\Large\bf Understanding information leakage in searchable encryption 
+}}
+
+\input{grant-case_prev.tex}
+\setlength\bibitemsep{0pt}
+\printbibliography[heading=subbibliography,resetnumbers=true,prefixnumbers={A},segment=\therefsegment            ]
+\end{refsegment}
+
+% 6-page max: case for support, proposed research
+
+\begin{refsegment}
+\defbibfilter{notB}{not segment=\therefsegment}
+\newpage
+
+\input{grant-case_prop.tex}
+\setlength\bibitemsep{0pt}
+\printbibliography[heading=subbibliography,resetnumbers=true,prefixnumbers={B},segment=\therefsegment,filter=notA]
+\end{refsegment}
+
+% =============================================================================
+
+\appendix
+
+% 2-page max: annex, justification of resources
+% 
+% http://www.epsrc.ac.uk/funding/howtoapply/preparing/writing/jor/
+
+\newpage
+\input{grant-annex_just.tex}
+
+% 2-page max: annex, pathways to impact
+%   
+% http://www.epsrc.ac.uk/funding/howtoapply/preparing/impactguidance/
+
+\newpage
+\input{grant-annex_path.tex}
+
+% 1-page max: annex, workplan
+
+\newpage
+\input{grant-annex_work.tex}
+
+% =============================================================================
+
+\end{document}
