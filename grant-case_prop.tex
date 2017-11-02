@@ -12,14 +12,14 @@ Ensuring this level of security without compromising functionality and efficienc
 face of wider cloud storage adoption, especially when compliance with legal requirements such as (the US regulation comprised by) PCI DSS and HIPAA, as well as privacy requirements under laws such as the EU Data Protection Regulation. 
 
 It is not hard to observe that simply using off-the-shelf encryption schemes does not “work” for cloud
-storage application. This is because standard encryption is so strong as to hide \emph{all} poartial information about the plaintexts, so ciphertexts cannot be used even to search on the underlying plaintexts. 
+storage application. This is because standard encryption is so strong as to hide \emph{all} poartial information about the plaintexts, so whoever stores the ciphertexts cannot implement \emph{any} functionality  which depends on the underlying plaintexts. 
 
 \paragraph{Computing on encrypted data}
-The theoretical appeal, but especially the potential for practical impact, has attracted a lot of research in the area of computing on encrypted data, where a cloud is empowered to operate on data that is encrypted without getting access to said data.
-There are a few theoretical solutions to this problem, e.g. Oblivious RAM (ORAM) [33, 23, 35] or fully homomorphic encryption
-(FHE) [22]. These solutions are decades away from being sufficiently efficient. 
+To enable cloud-based applications which go beyond simply storing data, it is necessary to enable the cloud to perform computations on encrypted data in a way that does not completely sacrifice privacy or security for utility.
+This research direction had attracted a lot of interest and led to theoretical solutions like Oblivious RAM (ORAM) [33, 23, 35] or fully homomorphic encryption (FHE) [22] which offer the desired functionality and leak no information about the underlying data. 
+Unfortunately, at present it seems that complete privacy for the underlying data inherently leads to impractical solutions. 
 
-A more practical approach proposes to design encryption schemes which leak \emph{some} information, sufficient to enable running algorithms on top of encrypted data, while revealing as little as possible about what exactly is encrypted. 
+A more pragmatic approach proposes to design encryption schemes which leak \emph{some} information, sufficient to enable running algorithms on top of encrypted data, while revealing as little as possible about what exactly is encrypted. 
 The practical implications for secure solutions for this problem are staggering and have attracted a significant amount of research.
 Consider for example  the rather restricted functionality offered by symmetric searchable encryption.
 There is by now a plethora of academic research on the topic \cite{}. 
@@ -31,8 +31,8 @@ protocols require a user or a proxy to create an encrypted index of the data and
 with encrypted data. Some are in the public- and some are in the symmetric-key settings. Some solutions
 are transparent in that the server can handle ciphertexts in the exact same way it searched unencrypted data,
 so no server-side modifications are required. The existing solutions also vary greatly security-wise. This
-is not surprising given that one often must compromise security in order to achieve better efficiency or
-functionality. 
+is not surprising given that one often must compromise some security to achieve better efficiency or
+functionality, and there is no trade-off which is right for all circumstances. 
 
 \paragraph{The problem}
 All of the above searchable encryption schemes and, more generally, schemes where information is leaked in exchange of improved functionality share a major shortcomming: the security implications of the information that is disclosed are only rarely clear. 
@@ -45,11 +45,12 @@ However, only informal arguments where attacks that exhibit obviously insecure b
 What is missing is a principled approach to the problem of understanding and quantifying information leakage in this type of schemes. 
 
 % -----------------------------------------------------------------------------
+\newpage
 
 \section{Research project}
 \label{sec:prop_hyp}
 
-The research hypothesis 
+The research hypothesis is that modern refinements of the concept of information entropy offer a tool that can serve 
 
 
 A possible solution to this problem is rooted in work by the PI in the context of electronic voting~\cite{bernhard2012measuring}. 
@@ -78,6 +79,10 @@ The broad goal is to extend the approach in ~\cite{bernhard2012measuring}
 
 
 This grant will run between January 2018 and June 2019. 
+
+
+
+\section{Timeliness and impact} 
 
 
 
