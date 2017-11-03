@@ -50,39 +50,37 @@ What is missing is a principled approach to the problem of understanding and qua
 \section{Research project}
 \label{sec:prop_hyp}
 
-The research hypothesis is that modern refinements of the notion of information entropy offer a tool which can serve to quantitatively measure information leakage in encryption schemes 
-
-
-A possible solution to this problem is rooted in work by the PI in the context of electronic voting~\cite{bernhard2012measuring}. 
+The \PI together with Prof. Boldyreva and Prof. Smith have identified a plausible approach to solving this problem through a mix of cryptographic and information theoretic techniques. 
+The idea is rooted in work by the PI in the context of electronic voting~\cite{bernhard2012measuring}. 
 There, it is observed that no matter how well individual votes are proected, the result of the voting process necessarily leaks information about the votes.
-The simplest way to see this is in the case where the winner is by unanimity: here it is clear how everyone voted.  The problem mirrors the one outline above for searchable encryption:  the information revealed by the result of the system is not accounted for by security definitions for privacy in voting systems. 
-For voting systems this problem has been addressed by the \PI~\cite{bernhard2012measuring}. 
-The main result shows that it is possible to use various notions of \emph{computational entropy} to measure the information that is revealed to the adversary.  
-Moreover, it is possible to exhibit a mapping between different notions of entropy (Hartley, min, average, conditional) and attacker models which clarify precisely what is the information that the attacker aims to obtain. 
+The simplest way to see this is in the case where the winner is by unanimity: here it is clear how everyone voted. 
+Other possible results (e.g. how votes are distributed between candidates) also imply information leakage on the individual votes. 
+% For voting systems this problem has been addressed by the \PI~\cite{bernhard2012measuring}. 
+The main result of ~\cite{bernhard2012measuring} shows that it is possible to use various notions of \emph{computational entropy} to measure the information that is revealed to the adversary.  
+Moreover, the work identifies a mapping between different notions of entropy (Hartley, min, average, conditional) and attacker models which clarify precisely what is the information that the attacker aims to obtain. 
 
-The idea behind this project is to 
+There is a clear between the setting of electronic voting and that of searchable encryption:  the information revealed by the  use of the system is not accounted for by established security definitions.  One missing ingredient are suitable notions of entropy with corresponding operational interpretations in terms of adversaries. 
 
-
-An important ingredient of this research project is a generalization of the traditional notion of entropy. 
-In a series of papers co-authored by Prof. Smith~\cite{DBLP:conf/csfw/AlvimCPS12,DBLP:conf/csfw/AlvimCMMPS14,DBLP:conf/csfw/AlvimCMMPS16,DBLP:conf/csfw/SmithS17} a generalization of the notion of entropy \emph{g-leakage}, 
-an approach to quantifying information leakage aking to entropy, but in a way that allow to identify a matching adversarial model.  
+A series of papers co-authored by Prof. Smith~\cite{DBLP:conf/csfw/AlvimCPS12,DBLP:conf/csfw/AlvimCMMPS14,DBLP:conf/csfw/AlvimCMMPS16,DBLP:conf/csfw/SmithS17} provides such a generalization in the form of \emph{g-leakage}. 
 The US National Security Agency awarded in 2015 the Best Cybersecurity Research Paper 
 
-From this perspective g-leakage generalizes the use of entropy in measuring vote privacy \cite{bernhard2012measuring}. 
 
+
+\paragraph{Research hypothesis}
+The research hypothesis behind this project is that a similar approach can be developed for searchable encryption
+
+
+\paragraph{Collaboration}
 The suggestion of using the g-leakage approach to measure information leakage in encryption schemes was suggested by the PI to Prof. Boldyreva in 2014, who has later organized a preliminary 3-day meeting with the \PI and Prof. Smith in April 2015.  
-In the meeting several interesting research directions were identified; one of them was to use the setting of searchable encryption as a test case to 
+In the meeting several interesting research directions were identified; one of them was to use the setting of searchable encryption as a test case. 
 
 This line of research has recently been granted support by the US National Science Foundation who has recently awarded a grant for collaborative work (\textit{EAGER: Collaborative: Quantifying Information Leakage in Searchable Encryption} -- Award \#1749069) for developing a principled understanding of information leakage in searchable encryption. 
-
-The broad goal is to extend the approach in ~\cite{bernhard2012measuring} 
-
-
 This grant will run between January 2018 and June 2019. 
 
+This grant will support support the participation of Prof. Warinschi 
 
 
-\section{Timeliness and impact} 
+\section{Timeliness, impact, and outlook} 
 
 
 
