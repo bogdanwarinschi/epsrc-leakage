@@ -40,9 +40,10 @@ Very roughly, security definitions for such schemes formalize the information le
 
 The leakage function is therefore a parameter of the definition but there are no restrictions imposed on it. 
 Specifying the leakage function associated to a scheme is left to the scheme designer, and determining what are acceptable functions is left to the users of the scheme.
-For some functions, e.g. a function that returns the first field of a database record, it may be clear and relatively simple to determine if the risc is acceptable.
-However, only informal arguments where attacks that exhibit obviously insecure behaviour have appeared in the literature. 
-What is missing is a principled approach to the problem of understanding and quantifying information leakage in this type of schemes. 
+For some functions, e.g. a function that returns the first field of a database record, it may be clear and relatively simple to determine if the risc is acceptable.  However, only informal arguments where attacks that exhibit obviously insecure behaviour have appeared in the literature. 
+More damaging, several heuristic attacks show that information leakage for these schemes can be used to reveal highly sensitive information which is not obviously leaked~\cite{cash2015leakage}. 
+
+This uncomfortable state of affairs shows that what is missing is a principled approach to the problem of understanding and quantifying information leakage in this type of schemes. 
 
 % -----------------------------------------------------------------------------
 \newpage
@@ -53,35 +54,52 @@ What is missing is a principled approach to the problem of understanding and qua
 The \PI together with Prof. Boldyreva and Prof. Smith have identified a plausible approach to solving this problem through a mix of cryptographic and information theoretic techniques. 
 The idea is rooted in work by the PI in the context of electronic voting~\cite{bernhard2012measuring}. 
 There, it is observed that no matter how well individual votes are proected, the result of the voting process necessarily leaks information about the votes.
-The simplest way to see this is in the case where the winner is by unanimity: here it is clear how everyone voted. 
-Other possible results (e.g. how votes are distributed between candidates) also imply information leakage on the individual votes. 
+The simplest way to see this is for (the unlikely but possible) situation where some candidate is voted unanimously; if this information is revealed then it is clear how everyone voted.  More generally, information regarding how votes are distributed among candidates imply that \emph{some} information is leaked about individual votes.  Privacy definitions for voting are usually not concerned with this type of leak, much like those for searchable encryption abstract away leakage profiles. 
+
 % For voting systems this problem has been addressed by the \PI~\cite{bernhard2012measuring}. 
-The main result of ~\cite{bernhard2012measuring} shows that it is possible to use various notions of \emph{computational entropy} to measure the information that is revealed to the adversary.  
-Moreover, the work identifies a mapping between different notions of entropy (Hartley, min, average, conditional) and attacker models which clarify precisely what is the information that the attacker aims to obtain. 
-
-There is a clear between the setting of electronic voting and that of searchable encryption:  the information revealed by the  use of the system is not accounted for by established security definitions.  One missing ingredient are suitable notions of entropy with corresponding operational interpretations in terms of adversaries. 
-
-A series of papers co-authored by Prof. Smith~\cite{DBLP:conf/csfw/AlvimCPS12,DBLP:conf/csfw/AlvimCMMPS14,DBLP:conf/csfw/AlvimCMMPS16,DBLP:conf/csfw/SmithS17} provides such a generalization in the form of \emph{g-leakage}. 
-The US National Security Agency awarded in 2015 the Best Cybersecurity Research Paper 
-
-
+The main result of ~\cite{bernhard2012measuring} shows how to use various notions of \emph{computational entropy} to measure the information that is revealed to the adversary: the work provides a mapping between a quantitative measure of lost information as captured by several different notions of entropy (Hartley, min, average, conditional) and the success probability of several distinct type of attackers. 
 
 \paragraph{Research hypothesis}
-The research hypothesis behind this project is that a similar approach can be developed for searchable encryption
-
+The research hypothesis behind this project is that, for searchable encryption,  a similar approach can provide quantitative measures to measure information leakage; these notions should be directly related to informative adversarial models which clarify the adversarial goals. 
 
 \paragraph{Collaboration}
-The suggestion of using the g-leakage approach to measure information leakage in encryption schemes was suggested by the PI to Prof. Boldyreva in 2014, who has later organized a preliminary 3-day meeting with the \PI and Prof. Smith in April 2015.  
-In the meeting several interesting research directions were identified; one of them was to use the setting of searchable encryption as a test case. 
+The project will use generalized gain functions, or \emph{g-leakage} in short, to develop a quantitative measure for the vulnerability induced by the (allowed) leakage in encrypted databases. 
+ This concept was introduced and refined in a series of papers co-authored by Prof. Smith ~\cite{DBLP:conf/csfw/AlvimCPS12,DBLP:conf/csfw/AlvimCMMPS14,DBLP:conf/csfw/AlvimCMMPS16,DBLP:conf/csfw/SmithS17} as 
+a generalization of information theoretic entropy. 
+What makes it suitable for our purpose is that it comes with an operational interpretation which links (generalizations of) entropy with attacker models. 
+
+% the US National Security Agency awarded in 2015 the Best Cybersecurity Research Paper to one of the papers in the series \footnote{\url https://www.nsa.gov/news-features/press-room/press-releases/2015/annual-cyber-research-paper-comp-winner.shtml}. 
+
+The \PI had suggested to Prof. Boldyreva to use g-leakage approach to measure information leakage in encryption schemes, following which a 3-day meeting with the \PI and Prof. Smith in April 2015.  In the meeting several interesting research directions were identified; one of them was to use the setting of searchable encryption as a test case. 
 
 This line of research has recently been granted support by the US National Science Foundation who has recently awarded a grant for collaborative work (\textit{EAGER: Collaborative: Quantifying Information Leakage in Searchable Encryption} -- Award \#1749069) for developing a principled understanding of information leakage in searchable encryption. 
-This grant will run between January 2018 and June 2019. 
+This grant will run between January 2018 and June 2019.  
 
-This grant will support support the participation of Prof. Warinschi 
+Most of the interaction between the \PI and the EAGER partners will be virtual (e.g. joint Skype meetings).  
+However, focussed research meetings are important for rapid and decisive progress.  
+This grant will support visits by Prof. Warinschi to project partners as well as participation to joint research meetings. 
+
+\paragraph{Timeliness and impact}
+Recent high-profile attacks on encrypted databases~\cite{naveed2015inference,cash2015leakage} have exposed 
+%These attacks target existing proposals with mathematical security proofs; some of the proposals are actually implemented and deployed by start-ups based in the US. 
+a large gap between the advertised security guarantees for encrypted databases and those required for secure deployment in cloud environments. 
+Most attacks 
+
+These attacks show the necessity for a principled understanding of the issues that surround information leakage in this settings as an important first step to filling this gap. 
+The US funded \emph{EAGER} which brings together world leading experts in encrypted databases and 
+
+project therefore offers a unique opportunity to develop 
+
+is project proposes will take an important first step in this direction, with the aim to enable cloud technologies for storing and processing data with clear risk profiles. 
 
 
-\section{Timeliness, impact, and outlook} 
 
+\paragraph{Outlook}
+Encryption schemes that trade some security for increased functionality come in many different shapes and forms. 
+An attempt to unify their syntax and security is the concept of property preserving encryption. 
+It comprises, (among its many different instantiations) several high-profile types of encryption schemes with different flavours of functionality: deterministic encryption reveals duplicates, order preserving encryption allows for efficient search in linearly ordered sets, fuzzy search allows for searching for approximate forms of keywords.   
+
+While the current project will develop a framework for coping with information leakage in searchable encryption, we envision that this framework will extend 
 
 
 
@@ -89,8 +107,12 @@ This grant will support support the participation of Prof. Warinschi
 
 \section{Past and ongoing collaborations}
 \label{sec:prop_method}
-The the Prof. Warinschi and Prof. Boldyreva have been collaborating for more than a decade, and their collaboration resulted in several research papers~\cite{boldyreva2007closer,boldyreva2009foundations,boldyreva2012secure,lipton2016provably}; some of these are  highly cited. 
-The PI and Prof. Boldyreva are currently undertaking joint work in the area of encryption for machine learning with one research paper under submission and another one in preparation. 
+The the Prof. Warinschi and Prof. Boldyreva have a history of sporadic but highly successful collaboration that spans more than a decade. 
+Some of their joint research papers~\cite{boldyreva2007closer,boldyreva2009foundations,boldyreva2012secure,lipton2016provably} have helped established new research directions, as evidenced by their high citation counts. 
+
+Currently, they are collaborating to 
+
+The importance of information leakage for encryption schemes have arouse in the context of recent joint work in the area of encryption for machine learning; one co-authored paper is currently under submission. 
 
 
 
